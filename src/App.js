@@ -1,6 +1,7 @@
 import Header from "./components/header";
 import Tasks from "./components/Tasks";
 import { useState } from 'react'
+import AddTask from './components/AddTask'
 
 const App = () => {
   const  [tasks,setTasks] = useState([
@@ -39,10 +40,16 @@ const App = () => {
 
     <div className="container">
 <Header/>
-{tasks.length > 0? <Tasks tasks = {tasks} 
-onDelete = {deleteTask} ponToggle = {toggleReminder}/>
-:'No Tasks Tasks To Show'}
-    </div>
+<AddTask/>
+{tasks.length > 0? ( 
+<Tasks tasks = {tasks} 
+onDelete = {deleteTask} 
+onToggle = {toggleReminder}/>
+):('No Tasks Tasks To Show'
+    
+  )
+}
+</div>
   )
 }
 
